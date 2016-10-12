@@ -1,7 +1,7 @@
 CREATE TABLE {{name}}(
-{{#every field in fields}}
-{{field.name}} {{type.name}} {{type.resolution}} {{type.options}} {{#if @last}},{{/if}}
+{{#every fields}}
+{{name}} {{type.name}} {{type.resolution}} {{type.options}} {{#if @last}},{{/if}}
 {{/every}}
-{{#if pk}}{{pk}}{{/if}}
-{{#every index in indexes}}{{#if unique}}UNIQUE {{/if}}KEY {{name}}{{/every}}
+{{#if pk}}{{pk}},{{/if}}
+{{#every indexes}}{{#if unique}}UNIQUE {{/if}}KEY {{name}}({{#every fields}}{{name}}{#if @last}},{{/if}}{{/every}}){#if @last}},{{/if}}{{/every}}
 ) ENGINE={{engine}} COLLATION CHARSET={{charset}} PACK_KEYS={{pack_keys}}
