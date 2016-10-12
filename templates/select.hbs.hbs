@@ -1,2 +1,7 @@
 SELECT
 {{#every fields}}
+{{../alias}}.{{name}} {{alias}} {{#if !@last}},{{/if}}
+{{/every}}
+FROM {{name}} {{alias}}
+WHERE
+{{#text '{{#every filter}}{{../alias}}.{{@key}}=\'this\'{{#if !@last}} AND {{/if}}{{#every}}'}}{{#text}}
