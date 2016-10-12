@@ -4,4 +4,4 @@ SELECT
 {{/every}}
 FROM {{name}} {{alias}}
 WHERE
-{{#text '{{#every filter}}{{../alias}}.{{@key}}=\'this\'{{#if !@last}} AND {{/if}}{{#every}}'}}{{#text}}
+{{#hbs '<#every filter><../alias<.<@key>=\'this\'<#if !@last> AND </if><#every>'}}{{#hbs}}
