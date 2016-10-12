@@ -1,3 +1,7 @@
 UPDATE {{name}} {{alias}}
 SET {{#every field}}
-{{../alias}}.{{name}}={{#hbs '{{
+{{../alias}}.{{name}}='item.\{\{{{name}}\}\}'{{#if !@last}},{{/if}}
+{{/every}}
+WHERE 
+{{#hbs '<#every filter>'}}{{/hbs}}{{alias}}.{{#hbs '<@key>=\'<this>\'<#if !@last> AND </if></every>' delims='<>'}}{{/hbs}}
+
