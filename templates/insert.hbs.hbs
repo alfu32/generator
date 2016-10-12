@@ -1,0 +1,5 @@
+INSERT INTO {{name}}(
+{{#every field}}{{name}}{{#if !@last}}{{#every}}
+)
+VALUES
+{{#hbs '<#every item>item.<@key></every><#if !@last>,</if>' delims='<>'}}{{/hbs}}
