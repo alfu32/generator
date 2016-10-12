@@ -1,3 +1,7 @@
-Handlebars.helper('hbs',function(context){})
+Handlebars.helper('hbs',function(context){
+var x
+})
 
-Handlebars.helper('every',function(context){})
+Handlebars.helper('every',function(context){
+
+})
